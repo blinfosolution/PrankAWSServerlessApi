@@ -1,0 +1,43 @@
+﻿@using Prank.Model;
+@model List<PrankCallFromPhoneNumberLstModel>
+
+<table class="table table-bordered table-hover">
+    <thead class="thead-light ">
+        <tr>
+            <th scope="col">Country </th>
+            <th scope="col">Country Code </th>
+            <th scope="col">From Phone Number</th>
+            <th scope="col">IsActive</th>
+            <th scope="col">AddedDate</th>
+            <th scope="col">Action</th>
+
+        </tr>
+    </thead>
+    <tbody id="tbodyDeviceInfo">
+        @if (Model != null && Model.Any())
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.Raw(item.Country)</td>
+                    <td>@Html.Raw(item.CountryCode)</td>
+                    <td>@Html.Raw(item.PhoneNumber)</td>
+                    <td>@Html.Raw(item.IsActive) </td>
+                    <td>@Html.Raw(item.AddedDate)</td>
+                    <td>
+                        <button class="btn btn-light border " onclick="javascript: AddEditPrankCallFromPhoneNumber(@item.PrankCallFromId,'Edit Prank Call From Phone Number');">Edit</button>
+                        <button class="btn btn-danger" onclick="javascript: DeleteFromPhoneNumber(@item.PrankCallFromId);">Delete</button>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="3"> No record found</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

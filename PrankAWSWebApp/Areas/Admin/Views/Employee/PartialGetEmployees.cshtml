@@ -1,0 +1,28 @@
+﻿@model IEnumerable<PrankAWSWebApp.Models.EmployeModelViewModel>
+
+@{
+    if (Model != null && Model.Any())
+    {
+        foreach (var employe in Model)
+        {
+    <tr data-id="@employe.Id">
+        @*<td><input type='checkbox' name='chkBoxEmployee[]' class='chkBoxEmployee' /></td>*@
+        <td><button class="btn btn-light border btnResetPass">Rest Password</button></td>
+        <td>@employe.FirstName </td>
+        <td>@employe.LastName </td>
+        <td>@employe.Email </td>
+        <td>@employe.Phone </td>
+        <td class="text-right">
+            <button class="btn btn-light border btnEdit">Edit</button>
+            <button class="btn btn-danger btnDelete">Delete</button>
+        </td>
+    </tr>
+        }
+    }
+    else
+    {
+        <tr>
+            <td colspan="6">No record found</td>
+        </tr>
+    }
+}

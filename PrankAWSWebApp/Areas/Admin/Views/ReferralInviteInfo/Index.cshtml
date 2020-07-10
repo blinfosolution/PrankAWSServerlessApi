@@ -1,0 +1,48 @@
+﻿@model PrankAWSWebApp.Areas.Admin.Models.ReferralInviteViewModel
+
+@{
+    ViewData["Title"] = "DeviceInfo";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .containerNew {
+        max-width: 80%;
+        width: 100%;
+        margin: 0 auto;
+    }
+</style>
+<div class="containerNew">
+    <div class="row">
+
+        <div class="col-md-8 text-left">
+            <h2>Manage Referral Invites</h2>
+        </div>
+        <div class="form-inline col-md-4 div-right">
+            <div class="input-group">
+                <input type="text" placeholder="Search By Referring User" id="txtSearch" class="form-control">
+                <div class="input-group-append">
+                    <button class="btn btn-success" type="submit" onclick="javascript: DataTableInit();"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-12 mt-4 table-responsive" id="dvReferralInviteInfoLst">
+            <table class="table table-bordered table-hover" id="dataTable">
+                <thead class="thead-light ">
+                    <tr>
+                        <th scope="col">FromDevice</th>
+                        <th scope="col">ToDevice</th>
+                        <th scope="col">Free Token</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">ReferDate</th>
+                        <th scope="col" class="wd200">ReferAcceptedDate</th>
+                    </tr>
+                </thead>
+
+            </table>
+
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/ReferralInvites/referral-invite-main.js"></script>

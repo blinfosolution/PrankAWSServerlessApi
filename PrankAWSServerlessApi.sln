@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrankAWSServerlessApi", "PrankAWSServerlessApi\PrankAWSServerlessApi.csproj", "{6995DD6F-FFAF-45F0-8966-DD40B324A29D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prank.Model", "Prank.Model\Prank.Model.csproj", "{025D586B-0F37-4779-A4C6-7D9680AE8FDB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prank.DAL", "Prank.DAL\Prank.DAL.csproj", "{25F34B35-D33B-4F0F-BCEA-B7B9447DB152}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrankAWSWebApp", "PrankAWSWebApp\PrankAWSWebApp.csproj", "{C1B63C2F-113D-4ADF-9E2C-7401E8232CA1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6995DD6F-FFAF-45F0-8966-DD40B324A29D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6995DD6F-FFAF-45F0-8966-DD40B324A29D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6995DD6F-FFAF-45F0-8966-DD40B324A29D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6995DD6F-FFAF-45F0-8966-DD40B324A29D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{025D586B-0F37-4779-A4C6-7D9680AE8FDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{025D586B-0F37-4779-A4C6-7D9680AE8FDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{025D586B-0F37-4779-A4C6-7D9680AE8FDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{025D586B-0F37-4779-A4C6-7D9680AE8FDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25F34B35-D33B-4F0F-BCEA-B7B9447DB152}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25F34B35-D33B-4F0F-BCEA-B7B9447DB152}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25F34B35-D33B-4F0F-BCEA-B7B9447DB152}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25F34B35-D33B-4F0F-BCEA-B7B9447DB152}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1B63C2F-113D-4ADF-9E2C-7401E8232CA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1B63C2F-113D-4ADF-9E2C-7401E8232CA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1B63C2F-113D-4ADF-9E2C-7401E8232CA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1B63C2F-113D-4ADF-9E2C-7401E8232CA1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {000EE8D9-DCBC-4060-888A-D25F8A5261B5}
+	EndGlobalSection
+EndGlobal

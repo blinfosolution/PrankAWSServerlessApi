@@ -1,0 +1,6 @@
+﻿<Response>
+  <Play>https://www.drpriya.com/Content/Call/deamy.mp3</Play>
+  <Record action="http://a2951eac00e5.ngrok.io/get_recording/" startOnDialAnswer="true" redirect="false"/>
+</Response>
+
+

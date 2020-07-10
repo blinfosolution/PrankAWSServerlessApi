@@ -1,0 +1,53 @@
+﻿@model PrankAWSWebApp.Models.PackagesModelViewModel
+
+<form asp-controller="Package" asp-action="SaveUpdate" id="frmpackage">
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group row">
+        <label class="col-md-4">Title</label>
+        <div class="col-md-8">
+            @Html.TextBoxFor(p => p.PackageTitle, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.PackageTitle, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group row">
+        <label class="col-md-4">Price</label>
+        <div class="col-md-8">
+            @Html.TextBoxFor(p => p.PackagePrice, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.PackagePrice, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-md-4">Token Credit Point</label>
+        <div class="col-md-8">
+            @Html.TextBoxFor(p => p.TokenCreditsPoint, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.TokenCreditsPoint, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-md-4">Sort Order</label>
+        <div class="col-md-8">
+            @Html.TextBoxFor(p => p.SortOrder, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.SortOrder, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-md-4">Product Identifier</label>
+        <div class="col-md-8">
+            @Html.TextBoxFor(p => p.ProductIdentifier, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.ProductIdentifier, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group row text-left">
+        <label class="col-md-4">&nbsp;</label>
+        <div class="col-md-8">
+            Active @Html.CheckBoxFor(p => p.IsActive)
+        </div>
+    </div>
+
+</form>
+
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>

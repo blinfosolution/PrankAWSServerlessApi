@@ -1,0 +1,24 @@
+﻿@model List<PrankAWSWebApp.Models.PageContentModelViewModel>
+
+@{
+    if (Model != null && Model.Any())
+    {
+        foreach (var package in Model)
+        {
+            <tr data-id="@package.PageContentId">
+                <td>@Html.Raw(package.PageContentKey)</td>
+                <td>@Html.Raw(package.PageContent)</td>
+
+                <td class="text-right">
+                    <button class="btn btn-light border btnEdit">Edit</button>
+                </td>
+            </tr>
+        }
+    }
+    else
+    {
+        <tr>
+            <td colspan="3">No record found</td>
+        </tr>
+    }
+}

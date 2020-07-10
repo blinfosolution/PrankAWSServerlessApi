@@ -1,0 +1,46 @@
+﻿@using Prank.Model;
+@model List<ReferralInfoListModel>
+
+<table class="table table-bordered table-hover">
+    <thead class="thead-light ">
+        <tr>
+            <th scope="col">Referral Title</th>
+            <th scope="col" class="wd200">Description</th>
+            @*<th scope="col">Referral Code </th>*@
+            <th scope="col">FreeCreditPoint</th>
+            <th scope="col">IsActive</th>
+            <th scope="col">AddedDate</th>
+            <th scope="col">Action</th>
+
+        </tr>
+    </thead>
+    <tbody id="tbodyDeviceInfo">
+        @if (Model != null && Model.Any())
+        {
+            @foreach (var item in Model)
+            {
+        <tr>
+            <td>@Html.Raw(item.ReferralTitle)</td>
+            <td>@Html.Raw(item.Description)</td>
+
+            @*<td>@Html.Raw(item.ReferralCode)</td>*@
+            <td>@Html.Raw(item.FreeCreditPoint)</td>
+
+            <td>@Html.Raw(item.IsActive) </td>
+            <td>@Html.Raw(item.AddedDate)</td>
+            <td>
+                <button class="btn btn-light border " onclick="javascript: AddEditReferralInfo(@item.ReferralId,'Edit Referral Info');">Edit</button>
+                @*<button class="btn btn-danger" onclick="javascript: DeleteReferralInfo(@item.ReferralId);">Delete</button>*@
+            </td>
+        </tr>
+            }}
+        else
+        {
+            <tr>
+                <td colspan="3"> No record found</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title </title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/lib/toastr/toastr.css" rel="stylesheet" />
+
+    <script type="text/javascript" src="~/lib/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="~/lib/twitter-bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="~/lib/toastr/toastr.min.js"></script>
+    <link href="~/css/site.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+    <link href="~/lib/datatable/dataTables.bootstrap4.min.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="loadingBox" style="display:none;">
+        <div class="loadingImg">
+            <img src="~/Images/Loader.gif" />
+        </div>
+    </div>
+    <header class="bg-white shadow-sm">
+        @*<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-facebook border-bottom box-shadow mb-3">*@
+        <nav class="navbar navbar-expand-lg bg-facebook navbar-dark box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand " asp-controller="Movies" asp-action="Index"> <b> Dagga </b></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-lg-inline-flex flex-lg-row-reverse">
+
+                    <ul class="navbar-nav text-white flex-grow-1">
+                        <li class="mr-auto"></li>
+                        @*<li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home @User.Claims.FirstOrDefault(c => c.Type == "UserName")</a>
+                            </li>*@
+                        <li class="nav-item">
+                            <a class="nav-link " asp-area="Admin" asp-controller="Prank" asp-action="Index">Pranks</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " asp-area="Admin" asp-controller="Package" asp-action="Index">Packages</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="Admin" asp-controller="ReferralInfo" asp-action="Index">Referral </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="Admin" asp-controller="ReferralInviteInfo" asp-action="Index">Referral Invites</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="Admin" asp-controller="PageContent" asp-action="Index">Term & Conditions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="Admin" asp-controller="DeviceInfo" asp-action="Index">Devices</a>
+                        </li>
+                        @*<li class="nav-item">
+                                <a class="nav-link" asp-area="Admin" asp-controller="CallTracking" asp-action="Index">Call Tracking</a>
+                            </li>*@
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="Admin" asp-controller="ContactUs" asp-action="Index">Contact Us</a>
+                        </li>
+                        @if (User.IsInRole(PrankAWSWebApp.Common.Constants.UserRoles.SuperAdmin))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="Admin" asp-controller="Employee" asp-action="Index">Employee</a>
+                            </li>
+                        }
+                        <li class="nav-item">
+                            <a class="nav-link " asp-area="Admin" asp-controller="PrankCallFromPhoneNumber" asp-action="Index">Manage From Numbers</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Account
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                @if (User.IsInRole(PrankAWSWebApp.Common.Constants.UserRoles.SuperAdmin))
+                                {
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="TrackingInfo" asp-action="Index">Tracking Info</a>
+                                }
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="Account" asp-action="LogOff">Logout</a>
+
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                @*<a class="btn btn-light nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Add</a>*@
+            </div>
+        </nav>
+    </header>
+    <div>
+        @RenderBody()
+    </div>
+    <!-- Button trigger modal -->
+    <!-- Modal -->
+    @*<script src="~/lib/jquery/dist/jquery.min.js"></script>*@
+
+
+    @*@RenderSection("Scripts", required: false)*@
+    <script src="https://momentjs.com/downloads/moment.js"></script>
+    @*<script src="~/lib/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>*@
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+    <script src="~/lib/datatable/jquery.dataTables.min.js"></script>
+    <script src="~/lib/datatable/dataTables.bootstrap4.min.js"></script>
+
+</body>
+</html>

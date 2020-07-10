@@ -1,0 +1,52 @@
+﻿@using Prank.Model.Account
+@model LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+<div class="loadingBox" style="display:none;">
+    <div class="loadingImg">
+        <img src="~/Images/Loader.gif" />
+    </div>
+</div>
+
+
+<div class="global-container">
+    <div class="card login-form">
+        <div class="card-body">
+            <h3 class="text-center"><strong>DAGGA</strong></h3>
+            <div class="card-text">
+                <form asp-controller="Account" asp-action="Login" ReturnUrl="/Dashboard" id="frmlogin" class="form-horizontal">                    
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control form-control-sm", @placeholder = "Email" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control form-control-sm", @placeholder = "Password" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    </div>
+                    <span id="lblusererror" style="color:red;height:12px;display:none;">
+                        Invalid username or password
+                    </span>
+                    <button id="btnlogin" class="btn btn-primary btn-block">Sign in</button>
+                    @*<div class="sign-up">
+                        Don't have an account? <a href="#">Create One</a>
+                    </div>*@
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<script src="~/js/account/login.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>

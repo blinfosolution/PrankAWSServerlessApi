@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Contact Us";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .containerNew {
+        max-width: 80%;
+        width: 100%;
+        margin: 0 auto;
+    }
+</style>
+
+<div class="containerNew">
+    <div class="row">
+
+        <div class="col-md-8 text-left">
+            <h2>Manage Contact Us</h2>
+        </div>
+        <div class="form-inline col-md-4 div-right">
+            <div class="input-group">
+                <input type="text" placeholder="Search By EmailTo" id="txtSearch" class="form-control">
+                <div class="input-group-append">
+                    <button type="submit" onclick="javascript:DataTableInit();" class="btn btn-success"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+
+<div class="col-md-12 mt-4  table-responsive" id="dvContactUsLst">
+            <table class="table table-bordered table-hover" data-order='[[ 2, "desc" ]]' id="dataTableContact">
+                <thead class="thead-light ">
+                    <tr>
+                        <th scope="col">EmailTo </th>
+                        <th scope="col">Message</th>
+                        <th scope="col">SendDate</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/ContactUs/contact-us-main.js"></script>

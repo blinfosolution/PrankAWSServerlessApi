@@ -1,0 +1,44 @@
+﻿
+@using Prank.Model;
+@model List<PackageOrderModel>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead class="thead-light ">
+                <tr>
+                    <th scope="col">Package Title</th>                   
+                    <th scope="col">Customer Email</th>                    
+                    <th scope="col">Order Status</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Paid Price</th>
+                    <th scope="col">CreditPoint</th>
+                    <th scope="col">EarnType</th>
+                    <th scope="col">Order Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    @foreach (var item in Model)
+                    {
+                <tr>
+                    <td>@Html.Raw(item.PackageTitle)</td>
+                    <td>@Html.Raw(item.CustomerEmail)</td>
+
+                    <td>@Html.Raw(item.OrderStatus)</td>
+                    <td>@Html.Raw(item.OrderStatusDescription)</td>
+
+                    <td>@Html.Raw(item.PaidPrice)</td>
+                    <td>@Html.Raw(item.TokenCreditPoint)</td>
+                    <td>@Html.Raw(item.TokenEarnType)</td>
+                    <td>@Html.Raw(item.OrderDate)</td>
+                </tr>
+                    }}
+                else
+                {
+                    <tr>
+                        <td colspan="15"> No record found</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>

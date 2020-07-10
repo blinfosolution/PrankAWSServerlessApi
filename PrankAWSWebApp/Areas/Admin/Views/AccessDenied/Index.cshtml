@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row heading-bg">
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+
+        </div>
+        <!-- Breadcrumb -->
+        <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+        </div>
+        <!-- /Breadcrumb -->
+    </div>
+    <!-- /Title -->
+    <!-- Row -->
+    <div class="row">
+        <div class="col-sm-12">
+
+            <div class="panel-heading">
+                <div class="pull-left">
+                    <h4>Unauthorized</h4>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="row ">
+                <div class="col-md-12">
+                    <strong> No permission assigned.Please login again.</strong>
+                    <div class="row">
+                        <div class="col-md-12">
+                            &nbsp;
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button class="btn btn-success" onclick="javascript: window.history.back();">Go To Back</button>
+                            @*<a href="Admin/Account/Login">Login</a>*@
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- /Row -->
+</div>
+

@@ -1,0 +1,68 @@
+﻿
+.loadingImg {
+    position: fixed;
+    z-index: 1500;
+    background: rgba(0,0,0,0.5);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+    .loadingImg img {
+        width: 80px;
+        margin: auto
+    }
+.loginBox {
+    max-width: 450px;
+      margin: 0px auto;
+    display: table;
+    box-shadow: 0 0 8px #ddd;
+    text-align: center;
+}
+.gpglogo {
+    margin-top: 80px;
+    text-align: center;
+}
+.loginHead {
+    background: #0069af;
+    padding: 15px;
+    font-size: 24px;
+    color: #fff;
+    text-align: center;
+}
+
+.loginDiv {
+    display: table;
+    padding: 30px;
+    padding-top: 0;
+}
+
+    .loginDiv p {
+        font-size: 18px;
+        margin: 10px;
+        margin-bottom: 30px;
+    }
+
+    .loginDiv .form-control {
+        border-radius: 50px;
+        padding: 0 20px;
+        background: #eee;
+    }
+
+.btn-new {
+    background: #0069af;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+    .btn-new:hover, .btn-new:focus {
+        color: #fff;
+    }
+
+.loginDiv label, .loginDiv a {
+    font-size: 18px
+}

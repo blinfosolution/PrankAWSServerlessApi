@@ -1,0 +1,9 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+    //Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container middle-text">
+    <h3>Hello @User.Claims.FirstOrDefault(c => c.Type == "UserName").Value</h3>
+</div>

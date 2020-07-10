@@ -1,0 +1,227 @@
+﻿<script src="@Url.Content("~/lib/dropzone/dropzone.js")"></script>
+<script type="text/javascript">
+    // Immediately after the js include
+    Dropzone.autoDiscover = false;
+</script>
+
+<link href="@Url.Content("~/lib/dropzone/css/dropzone.css")" rel="stylesheet" />
+
+@model PrankAWSWebApp.Areas.Admin.Models.PrankAddEditModel
+
+<form asp-controller="Prank" asp-action="SaveUpdate" id="frmPrankInfo">
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(m => m.PrankId)
+    <div class="form-group row">
+        <label class="col-md-3">Prank Name</label>
+        <div class="col-md-9">
+            @Html.TextBoxFor(p => p.PrankName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(p => p.PrankName, "", new { @class = "text-danger" })
+            
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-md-3">Description</label>
+        <div class="col-md-9">
+            @Html.TextAreaFor(p => p.PrankDesc, new { @class = "form-control" })
+            @Html.ValidationMessageFor(p => p.PrankDesc, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    @if (Model.PrankId > 0)
+    {
+        <div id="dvPrankImageView">
+            <div class="form-group row">
+                <label class="col-md-3">Prank Image</label>
+                <div class="col-md-5">
+                    <img src="@Model.PrankImage" class="wd150" />
+                </div>
+                <div class="col-md-4">
+                    <a href="#" title="Change Prank Image " onclick="javascript: prankChangeImage();">Change Image</a>
+                </div>
+            </div>
+        </div>
+    }
+    <div id="divPrankInfoImageArea" style='@(Model.PrankId > 0 ? "display:none" : "")'>
+        <div class='form-group row '>
+            <div class='col-md-12'>
+                <div class="form-group">
+                    <div class="col-md-12"><label class=" form-control-label">Prank Image</label></div>
+                    <div class="col-md-12 paddingLeft52">
+                        <div method="post" enctype="multipart/form-data" class="dropzone" id="divPrankImgSection">
+                            <div class="fallback">
+                                <input name="file" type="file" multiple />
+                                <input type="button" value="Upload" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Html.HiddenFor(m => m.PrankImage)
+    @Html.ValidationMessageFor(m => m.PrankImage, "", new { @class = "text-danger" })
+    @if (Model.PrankId > 0)
+    {<div id="dvPreviewAudioView">
+            <div class="form-group row">
+                <label class="col-md-3">Preview Audio File</label>
+                <div class="col-md-5">
+                    <a href="@Model.PreviewAudioFile" target="_blank" title="Preview Audio File" class="btn btn-dark"><i class="fas fa-play"></i></a>
+                </div>
+                <div class="col-md-4">
+                    <a href="#" title="Change Preview Audio " onclick="javascript: prankChangePreviewAudioFile();">Change  Audio</a>
+                </div>
+            </div>
+        </div>
+    }<div id="divPreviewAudioArea" style='@(Model.PrankId > 0 ? "display:none" : "")'>
+        <div class='form-group row '>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="col-md-12"><label class=" form-control-label"> Preview Audio File</label></div>
+                    <div class="col-md-12 paddingLeft52">
+                        <div method="post" enctype="multipart/form-data" class="dropzone" id="divPreviewAudioSection">
+                            <div class="fallback">
+                                <input name="file" type="file" multiple />
+                                <input type="button" value="Upload" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Html.HiddenFor(m => m.PreviewAudioFile)
+    @Html.ValidationMessageFor(p => p.PreviewAudioFile, "", new { @class = "text-danger" })
+    @if (Model.PrankId > 0)
+    {
+        <div id="dvMainAudioView">
+            <div class="form-group row">
+                <label class="col-md-3">Main Audio File</label>
+                <div class="col-md-5">
+                    <a href="@Model.MainAudioFile" target="_blank" title="Full Audio File" class="btn btn-warning"><i class="fas fa-play"></i></a>
+                </div> <div class="col-md-4">
+                    <a class="" href="#" title="Change Main audio " onclick="javascript: prankChangeMainAudioFile();">Change  Audio</a>
+                </div>
+            </div>
+        </div>
+    }
+    <div id="divMainAudioArea" style='@(Model.PrankId > 0 ? "display:none" : "")'>
+        <div class='form-group row'>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="col-md-12"><label class=" form-control-label"> Main Audio File</label></div>
+                    <div class="col-md-12 paddingLeft52">
+                        <div method="post" enctype="multipart/form-data" class="dropzone" id="divMainAudioSection">
+                            <div class="fallback">
+                                <input name="file" type="file" multiple />
+                                <input type="button" value="Upload" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @Html.HiddenFor(m => m.MainAudioFile)
+    @Html.ValidationMessageFor(p => p.MainAudioFile, "", new { @class = "text-danger" })
+    <div class="form-group row  text-left">
+        @*<label class="col-md-4">&nbsp;</label>*@
+        <div class="col-md-8">
+            Active @Html.CheckBoxFor(p => p.IsActive)
+        </div>
+    </div>
+</form>
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $.validator.unobtrusive.parse("#frmPrankInfo");
+        var maxImageWidth = 1920,
+            maxImageHeight = 770;
+
+        $("#divPrankImgSection").dropzone({
+            maxFiles: 1,
+            addRemoveLinks: true,
+            init: function () {
+
+                $(this.element).addClass("dropzone");
+                this.on("thumbnail", function (file) {
+                    if (file.width > maxImageWidth || file.height > maxImageHeight) {
+                        file.rejectDimensions();
+                    }
+                    else {
+                        file.acceptDimensions();
+                    }
+                }),
+                    this.on("success", function (file, response) {
+
+                        if (response.isSuccess == true) {
+                            $("#PrankImage").val("https://prankapibucket.s3.ap-south-1.amazonaws.com/Images/"+response.response);
+                        }
+                        else {
+                            alert(response.response);
+                        }
+                    });
+            },
+            accept: function (file, done) {
+                file.rejectDimensions = function () {
+                    alert("Please make sure the image width and height are not larger than 1920px * 770px");
+                };
+                file.acceptDimensions = done;
+            },
+            url: "/Admin/Prank/SavePrankImageRequest"
+        });
+
+
+
+        $("#divPreviewAudioSection").dropzone({
+            maxFiles: 1,
+            addRemoveLinks: true,
+            maxFilesize: 10,
+            init: function () {
+                $(this.element).addClass("dropzone");
+                this.on("success", function (file, response) {
+                    if (response.isSuccess == true) {
+                        $("#PreviewAudioFile").val("https://prankapibucket.s3.ap-south-1.amazonaws.com/Audio/"+response.response);
+                    }
+                    else {
+                        alert(response.response);
+                    }
+                });
+            },
+            url: "/Admin/Prank/SavePrankAudioRequest"
+        });
+
+        $("#divMainAudioSection").dropzone({
+            maxFiles: 1,
+            addRemoveLinks: true,
+            maxFilesize: 10,
+            init: function () {
+                $(this.element).addClass("dropzone");
+                this.on("success", function (file, response) {
+
+                    if (response.isSuccess == true) {
+                        $("#MainAudioFile").val("https://prankapibucket.s3.ap-south-1.amazonaws.com/Audio/"+response.response);
+                    }
+                    else {
+                        alert(response.response);
+                    }
+                });
+            },
+
+            url: "/Admin/Prank/SavePrankAudioRequest"
+        });
+
+
+
+
+    });
+
+</script>
+<script src="~/Scripts/PrankInfo/prank-info-edit.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>

@@ -1,0 +1,42 @@
+﻿
+@using Prank.Model;
+@model List<PrankCallHistoryModel>
+
+<table class="table table-bordered table-hover">
+    <thead class="thead-light ">
+        <tr>
+
+            <th scope="col">Prank Name </th>
+            <th scope="col">ToPhoneNumberPersonName</th>
+            <th scope="col">ToPhoneNumber</th>
+            <th scope="col">PrankCallPoints</th>
+            <th scope="col">CallDate</th>
+            <th></th>
+
+        </tr>
+    </thead>
+    <tbody id="tbodyDeviceInfo">
+        @if (Model != null && Model.Any())
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.Raw(item.PrankName)</td>
+                    <td>@Html.Raw(item.ToPhoneNumberPersonName)</td>
+                    <td>@Html.Raw(item.ToPhoneNumber)</td>
+                    <td>@Html.Raw(item.PrankCallPoints) </td>
+                    <td>@Html.Raw(item.CallDate)</td><td>
+                    
+                        <button class="btn btn-danger btnDelete" onclick="javascript:DeleteCallHistory(@item.TrackingId)">Delete</button>
+                    </td>
+
+                </tr>
+            }}
+        else
+        {
+            <tr>
+                <td colspan="3"> No record found</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,52 @@
+﻿
+@using Prank.Model;
+@model List<PrankCallHistoryModel>
+<div class="table-responsive">
+    <table class="table table-bordered table-hover">
+        <thead class="thead-light ">
+            <tr>
+                <th scope="col">Prank Name </th>
+                <th scope="col">Picture</th>
+                <th scope="col">To Call</th>
+                <th scope="col">Call Points</th>
+                <th scope="col">Recorded Audio File</th>
+                <th scope="col">Calling Date</th>
+            </tr>
+        </thead>
+        <tbody id="tbodyDeviceInfo">
+            @if (Model != null && Model.Any())
+            {
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.Raw(item.PrankName)</td>
+                        <td><img src="@item.PrankImage" class="wd150" /></td>
+                        <td>@Html.Raw(item.ToPhoneNumberPersonName) <br />@Html.Raw(item.ToPhoneNumber)</td>
+                        <td>@Html.Raw(item.PrankCallPoints) </td>
+                        <td>
+
+                            <button title="Play"  class="btn btn-lg btn-flat btn-success" id="playaudio_@item.TrackingId" onclick="javascript:playAudio('@item.TrackingId','@item.RecordedAudioFile');">
+                                <i class="fa fa-play"></i>
+                            </button>
+
+                            <button title="Pause" class="btn btn-lg btn-flat btn-danger" id="pauseaudio_@item.TrackingId" onclick="javascript: pauseAudio('@item.TrackingId');" style="display:none;">
+                                <i class="fa fa-pause"></i>
+                            </button>
+
+                            @*<a href="@item.RecordedAudioFile" target="_blank" title="Recorded Audio File" class="btn btn-dark"><i class="fas fa-play"></i></a>*@
+                            &nbsp;&nbsp;  <a href="@Url.Content("~/Admin/DeviceInfo/DownLoadAudioFile?url="+item.RecordedAudioFile)"><i class="fas fa-download"></i></a>
+                        </td>
+
+                        <td>@Html.Raw(item.CallDate)</td>
+                    </tr>
+                }}
+            else
+            {
+                <tr>
+                    <td colspan="10"> No record found</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<script src="~/Scripts/play-audio.js"></script>
