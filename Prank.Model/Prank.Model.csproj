@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
-    <PackageReference Include="ServiceStack" Version="5.9.0" />
+    <PackageReference Include="ServiceStack" Version="5.9.2" />
   </ItemGroup>
 
 </Project>
